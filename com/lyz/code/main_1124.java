@@ -19,7 +19,9 @@ public class main_1124 {
         for (int i = 1; i < n.length; i++) {
             n[i] = n[i - 1] + (hours[i - 1] > 8 ? 1 : -1);
         }
+        System.out.println(Arrays.toString(n));
 
+        // 右边 - 左边 > 0 说明该时间段是表现良好时间段
         int res = 0;
         for (int i = n.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
