@@ -3,7 +3,7 @@ package com.lyz.code;
 public class main_41 {
 
     public static void main(String[] args) {
-        System.out.println(new main_41().firstMissingPositive(new int[]{1, 1}));
+        System.out.println(new main_41().firstMissingPositive(new int[]{1, 2, 0}));
     }
 
     public int firstMissingPositive(int[] nums) {
@@ -14,8 +14,6 @@ public class main_41 {
                 nums[i] = tmp;
             }
         }
-
-
         for (int i = 0; i < nums.length; i++) {
             if (i != nums[i] - 1) {
                 return i + 1;
