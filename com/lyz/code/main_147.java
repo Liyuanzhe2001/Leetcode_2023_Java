@@ -2,8 +2,6 @@ package com.lyz.code;
 
 import com.lyz.code.dataStructure.ListNode;
 
-import java.util.Arrays;
-
 public class main_147 {
 
     public static void main(String[] args) {
@@ -24,5 +22,4 @@ public class main_147 {
         }
         return root.next;
     }
-
 }
