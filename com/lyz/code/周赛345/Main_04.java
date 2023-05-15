@@ -16,7 +16,6 @@ class AAA {
 
         private int count;
         private int[] parent;
-
         private int[] size;
 
         public UF(int n) {
