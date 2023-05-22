@@ -2,6 +2,7 @@ package com.lyz.code.util;
 
 import com.lyz.code.dataStructure.ListNode;
 import com.lyz.code.dataStructure.Node;
+import com.lyz.code.dataStructure.TreeNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -37,5 +38,21 @@ public class Util {
         }
         System.out.println("]");
     }
+
+    public static void printTreeNode(TreeNode node) {
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        queue.add(node);
+        while (!queue.isEmpty()) {
+            TreeNode poll = queue.poll();
+            System.out.print(poll.val + " ");
+            if (poll.left != null) {
+                queue.add(poll.left);
+            }
+            if (poll.right != null) {
+                queue.add(poll.right);
+            }
+        }
+    }
+
 
 }

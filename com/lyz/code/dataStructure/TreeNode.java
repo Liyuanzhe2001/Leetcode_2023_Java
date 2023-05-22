@@ -1,6 +1,6 @@
 package com.lyz.code.dataStructure;
 
-public class TreeNode extends Node {
+public class TreeNode {
     public int val;
     public TreeNode left;
     public TreeNode right;
