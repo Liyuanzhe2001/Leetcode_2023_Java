@@ -30,10 +30,14 @@
 //        }
 //        if (board[x][y] == word.charAt(index)) {
 //            visited[x][y] = true;
-//            return dfs(board, visited, x + 1, y, word, index + 1)
-//                    || dfs(board, visited, x - 1, y, word, index + 1)
-//                    || dfs(board, visited, x, y + 1, word, index + 1)
-//                    || dfs(board, visited, x, y - 1, word, index + 1);
+//            boolean[][] tmp;
+//            tmp = visited;
+//            boolean flag;
+//            flag = dfs(board, tmp, x + 1, y, word, index + 1);
+//            flag = flag || dfs(board, visited, x - 1, y, word, index + 1);
+//            flag = flag || dfs(board, visited, x, y + 1, word, index + 1);
+//            flag = flag || dfs(board, visited, x, y - 1, word, index + 1);
+//            return flag;
 //        } else {
 //            return false;
 //        }
