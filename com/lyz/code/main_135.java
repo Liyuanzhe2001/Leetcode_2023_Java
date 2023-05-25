@@ -1,7 +1,5 @@
 package com.lyz.code;
 
-import java.util.Arrays;
-
 public class main_135 {
 
     public static void main(String[] args) {
