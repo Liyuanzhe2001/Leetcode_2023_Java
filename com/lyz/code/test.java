@@ -5,6 +5,11 @@ import java.util.*;
 
 public class test {
     public static void main(String[] args) {
-        System.out.println("AAA".replaceFirst("A","b"));
+        Set<Integer> set = new HashSet<>();
+        set.add(5);
+        set.add(1);
+        set.add(3);
+        Queue queue =  new ArrayDeque();
+        System.out.println(set);
     }
 }
