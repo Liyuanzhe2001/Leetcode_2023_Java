@@ -26,6 +26,7 @@ public class Main_03 {
         add(625);
         add(3125);
         add(15625);
+        add(78125);
     }};
 
     Set<String> set = new HashSet<>() {{
