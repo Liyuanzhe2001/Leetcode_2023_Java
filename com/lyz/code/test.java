@@ -5,15 +5,9 @@ import java.util.*;
 
 public class test {
     public static void main(String[] args) {
-        Set<String> set = new HashSet<>() {{
-            add("1");
-            add("101");
-            add("11001");
-            add("1001110001");
-            add("110000110101");
-            add("11110100001001");
-            add("10011000100101101");
-        }};
-        System.out.println(set.contains("101"));
+        Set<int[]> set = new TreeSet<>();
+        set.add(new int[]{1, 2});
+        set.add(new int[]{2, 3});
+        System.out.println(set.contains(new int[]{1, 2}));
     }
 }
