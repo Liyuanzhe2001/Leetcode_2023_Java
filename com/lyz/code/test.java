@@ -5,6 +5,6 @@ import java.util.*;
 
 public class test {
     public static void main(String[] args) {
-        System.out.println("aaa".substring(0, 3));
+        System.out.println("/* This is a test".substring(0,0));
     }
 }
