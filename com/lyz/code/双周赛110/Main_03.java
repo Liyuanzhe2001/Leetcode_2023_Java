@@ -11,44 +11,19 @@ import java.util.*;
 public class Main_03 {
 
     public int minimumSeconds(List<Integer> nums) {
-        Map<Integer, Queue<Integer>> index = new HashMap<>();
+        Map<Integer, List<Integer>> map = new HashMap<>();
         int n = nums.size();
-        for (int i = 0; i < nums.size(); i++) {
-            Integer num = nums.get(i);
-            Queue<Integer> tmpQ = index.getOrDefault(num, new LinkedList<>());
-            tmpQ.add(i);
-            index.put(num, tmpQ);
+        for (int i = 0; i < n; i++) {
+            map.computeIfAbsent(nums.get(i), t -> new ArrayList<>()).add(i);
         }
 
         int res = Integer.MAX_VALUE;
-        for (Integer maxNum : index.keySet()) {
-            int s = -1;
-            Queue<Integer> queue = index.get(maxNum);
-            boolean[] visited = new boolean[n];
-            for (Integer i : queue) {
-                visited[i] = true;
+        for (List<Integer> value : map.values()) {
+            int max = value.get(0) - value.get(value.size() - 1) + n;
+            for (int i = 1; i < value.size(); i++) {
+                max = Math.max(value.get(i) - value.get(i - 1), max);
             }
-            while (!queue.isEmpty()) {
-                s++;
-                if(s > res) {
-                    break;
-                }
-                int len = queue.size();
-                for (int i = 0; i < len; i++) {
-                    Integer poll = queue.poll();
-                    int pre = (poll - 1 + n) % n;
-                    int nex = (poll + 1) % n;
-                    if (!visited[pre]) {
-                        visited[pre] = true;
-                        queue.add(pre);
-                    }
-                    if (!visited[nex]) {
-                        visited[nex] = true;
-                        queue.add(nex);
-                    }
-                }
-            }
-            res = Math.min(res, s);
+            res = Math.min(res, max / 2);
         }
         return res;
     }
