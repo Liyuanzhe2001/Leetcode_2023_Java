@@ -1,4 +1,4 @@
-package com.lyz.code.数据结构教程.第一章;
+package com.lyz.code.lc_数据结构教程.第一章;
 
 import java.util.Arrays;
 
