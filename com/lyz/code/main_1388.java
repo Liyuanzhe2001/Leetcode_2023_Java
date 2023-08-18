@@ -1,41 +1,38 @@
 //package com.lyz.code;
 //
+//import java.util.Arrays;
 //import java.util.LinkedList;
 //import java.util.List;
 //
 //public class main_1388 {
 //
-//    public static void main(String[] args) {
-//
+//    public int maxSizeSlices(int[] slices) {
+//        int[] v1 = new int[slices.length - 1];
+//        int[] v2 = new int[slices.length - 1];
+//        System.arraycopy(slices, 1, v1, 0, slices.length - 1);
+//        System.arraycopy(slices, 0, v2, 0, slices.length - 1);
+//        int ans1 = calculate(v1);
+//        int ans2 = calculate(v2);
+//        return Math.max(ans1, ans2);
 //    }
 //
-//    public int maxSizeSlices(int[] slices) {
-//        int n = slices.length / 3;
-//        int res = 0;
-//        List<Integer> list = new LinkedList<>() {{
-//            for (int slice : slices) {
-//                add(slice);
-//            }
-//        }};
-//        while (list.size() < 3) {
-//            int max = -1;
-//            int maxIndex = -1;
-//            for (int i = 0; i < list.size(); i++) {
-//                if (max < list.get(i)) {
-//                    max = list.get(i);
-//                    maxIndex = i;
-//                }
-//            }
-//            res += max;
-//            int lef = (maxIndex - 1 + list.size()) % list.size();
-//            int rig = (maxIndex + 1) % list.size();
-//            int tmp = list.get(lef) + list.get(rig) - max;
-//            list.remove(maxIndex);
-//            list.add(maxIndex, tmp);
-//            list.remove(lef);
-//            list.remove(rig);
+//    public int calculate(int[] slices) {
+//        int N = slices.length, n = (N + 1) / 3;
+//        int[][] dp = new int[N][n + 1];
+//        for (int i = 0; i < N; i++) {
+//            Arrays.fill(dp[i], Integer.MIN_VALUE);
 //        }
-//        return res;
+//        dp[0][0] = 0;
+//        dp[0][1] = slices[0];
+//        dp[1][0] = 0;
+//        dp[1][1] = Math.max(slices[0], slices[1]);
+//        for (int i = 2; i < N; i++) {
+//            dp[i][0] = 0;
+//            for (int j = 1; j <= n; j++) {
+//                dp[i][j] = Math.max(dp[i - 1][j], dp[i - 2][j - 1] + slices[i]);
+//            }
+//        }
+//        return dp[N - 1][n];
 //    }
 //
 //}
