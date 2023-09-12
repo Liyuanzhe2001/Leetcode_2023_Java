@@ -4,6 +4,7 @@ import java.util.*;
 
 public class test {
     public static void main(String[] args) {
-        System.out.println(Math.abs((long) -2147483648));
+        List<Boolean> list = new ArrayList<>(5);
+        System.out.println(list);
     }
 }
