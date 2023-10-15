@@ -12,25 +12,26 @@ public class Main_04 {
     public int[][] constructProductMatrix(int[][] grid) {
         int n = grid.length;
         int m = grid[0].length;
-        long ll = 1L;
-        for (int[] ints : grid) {
-            for (int anInt : ints) {
-                if (anInt % 12345 != 0) {
-                    ll *= anInt % 12345;
+        int[][] res = new int[n][m];
+
+        int value = 1;
+        for (int k = 0; k < n; k++) {
+            for (int l = 0; l < m; l++) {
+                if (k != 0 || l != 0) {
+                    value = (value * grid[k][l]) % 12345;
                 }
             }
         }
-        int[][] res = new int[n][m];
+        grid[0][0] = value == 0 ? 12345 : value;
+
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                int tmp = grid[i][j] % 12345;
-                if (tmp != 0) {
-                    res[i][j] = (int) ((ll / tmp) % 12345);
-                } else {
-                    res[i][j] = (int) (ll % 12345);
+                if (i != 0 && j != 0) {
+                    res[i][j] = (grid[0][0] * res[0][0] / grid[i][j]) % 12345;
                 }
             }
         }
+        res[0][0] = res[0][0] % 12345;
         return res;
     }
 }
